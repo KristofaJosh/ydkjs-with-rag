@@ -6,7 +6,8 @@ export async function POST(req: NextRequest) {
     return new Response("Missing question parameter", { status: 400 });
   }
 
-  const backendRes = await fetch("http://localhost:8000/ask", {
+  // const backendRes = await fetch("http://localhost:8000/ask", {
+  const backendRes = await fetch("http://ydkjs-reader:8000/ask", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

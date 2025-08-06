@@ -1,11 +1,21 @@
 services:
   ydkjs-reader:
+    develop:
+      watch:
+        - action: sync
+          path: ./client
+          target: /
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "3000:3000"  # NextJS frontend
       - "8000:8000"  # FastAPI backend
+      - "11434:11434"  # Ollama backend
     volumes:
       - ollama-models:/root/.ollama  # Persist Ollama models
       - ./server/chroma_db:/app/server/chroma_db  # Persist ChromaDB data

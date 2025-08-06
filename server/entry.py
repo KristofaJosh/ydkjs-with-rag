@@ -1,3 +1,6 @@
+import asyncio
+from http.client import responses
+
 from dotenv import load_dotenv
 from fastapi import FastAPI, Body
 from starlette.responses import StreamingResponse
@@ -53,6 +56,10 @@ async def init_chroma():
 # print(response)
 # ask_with_streaming("how can I ensure an object is immutable")
 
+@app.get("/")
+def hello(request = Body(...)) -> dict[str, str]:
+    return { "message": "Hello, World!" }
+
 @app.post("/ask")
 def ask(request = Body(...)) -> StreamingResponse:
     data = request.get("data", {})
@@ -61,10 +68,11 @@ def ask(request = Body(...)) -> StreamingResponse:
 
     # question = request.data.question
     # history = request.data.history
-
-    return StreamingResponse(ask_with_streaming(question), media_type="text/plain")
+    response = ask_with_streaming(question)
+    print(response)
+    return StreamingResponse(response, media_type="text/plain")
 #
 
 if __name__ == "__main__":
     init_cache_db()
-    # asyncio.run(init_chroma())
+    asyncio.run(init_chroma())

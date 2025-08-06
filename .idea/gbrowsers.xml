@@ -17,6 +17,10 @@
     {
       "name": "localhost:3000/reader/get-started",
       "url": "http://localhost:3000/reader/get-started"
+    },
+    {
+      "name": "localhost:3000/reader/scope-closures",
+      "url": "http://localhost:3000/reader/scope-closures"
     }
   ]
 }]]></component>

@@ -34,7 +34,9 @@ All of this is wrapped in a **Dockerized stack** with a Next.js frontend and Fas
 
 *Project Setup will be updated soon with detailed instructions on how to run this locally.*
 
-![Project Architecture](./img.png)
+![landing](./img.png)
+![chapter_chat](./img2.png)
+![whole_book_chat](./img3.png)
 
 [//]: # (## Docker Setup)
 

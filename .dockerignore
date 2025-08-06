@@ -18,7 +18,7 @@ server/*.so
 server/.Python
 server/env/
 server/venv/
-server/.env
+#server/.env
 server/.venv
 server/ENV/
 server/env.bak/

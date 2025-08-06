@@ -2,8 +2,8 @@ import sqlite3
 from pathlib import Path
 from contextlib import contextmanager
 
-DB_PATH = Path("app.db")
-
+DB_PATH = Path(__file__).parent.parent / "app.db"
+DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 @contextmanager
 def get_db_connection():

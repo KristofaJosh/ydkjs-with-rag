@@ -1,0 +1,47 @@
+# Git
+.git
+.gitignore
+
+# Node.js
+client/node_modules
+client/.next
+client/.cache
+client/npm-debug.log
+client/yarn-debug.log
+client/yarn-error.log
+
+# Python
+server/__pycache__/
+server/*.py[cod]
+server/*$py.class
+server/*.so
+server/.Python
+server/env/
+server/venv/
+server/.env
+server/.venv
+server/ENV/
+server/env.bak/
+server/venv.bak/
+server/.pytest_cache/
+server/.coverage
+server/htmlcov/
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Data directories (these will be mounted as volumes)
+server/chroma_db/
+server/app.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific
+.DS_Store
+Thumbs.db

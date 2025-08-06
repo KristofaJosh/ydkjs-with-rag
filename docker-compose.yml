@@ -1,0 +1,26 @@
+services:
+  ydkjs-reader:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"  # NextJS frontend
+      - "8000:8000"  # FastAPI backend
+    volumes:
+      - ollama-models:/root/.ollama  # Persist Ollama models
+      - ./server/chroma_db:/app/server/chroma_db  # Persist ChromaDB data
+      - ./server/app.db:/app/server/app.db  # Persist SQLite database
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    # Ollama requires significant resources, especially for larger models
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
+
+volumes:
+  ollama-models:
+    driver: local
